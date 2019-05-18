@@ -1,0 +1,52 @@
+<input 
+type="text" 
+class="create-todo" 
+placeholder="What will I accomplish TODAY?" 
+[(ngModel)]="todoBody" 
+(keyup.enter)="createTodo()"
+>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let todo of todos" cdkDrag>
+
+    <div class="todo-left">
+
+      <input type="checkbox" [(ngModel)]="todo.completed">
+    
+      <div 
+      *ngIf="!todo.editing;" 
+      class="todo-label" 
+      [ngClass]="{ 'completed' : todo.completed }" 
+      (dblclick)="updateTodo(todo)"
+      >
+        {{todo.body}}
+      </div>
+    
+      <div class="todo-left" *ngIf="todo.editing;">
+        <input 
+        class="update-todo" 
+        [(ngModel)]="todo.body" 
+        (keyup.enter)="doneUpdatingTodo(todo)"
+        autofocus
+        >
+      </div>
+    
+    </div>
+
+    <div style="display:flex;">
+        <div class="destroy-todo" *ngIf="todo.editing;" (click)="doneUpdatingTodo(todo)">
+          Save
+        </div>
+        <div class="destroy-todo" *ngIf="todo.editing;" (click)="cancelUpdatingTodo(todo)">
+          Restart
+        </div>
+      <div class="destroy-todo" *ngIf="!todo.editing;" (click)="updateTodo(todo)">
+        Edit
+      </div>
+      <div class="destroy-todo" (click)="destroyTodo(todo.id)">
+        &times;
+      </div>
+    </div>
+
+  </div>
+<div>
+

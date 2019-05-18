@@ -1,0 +1,66 @@
+.create-todo {
+  width: 95%;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-bottom: 16px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.destroy-todo {
+  cursor: pointer;
+  margin-left: 14px;
+  &:hover {
+    color: black;
+  }
+}
+
+.todo-left {
+  display: flex;
+  align-items: center;
+}
+
+.todo-label {
+  padding: 10px;
+  border: 1px solid white;
+  margin-left: 12px;
+}
+
+.update-todo {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-left: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; //override defaults
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+button {
+  font-size: 16px;
+  background-color: white;
+  appearance: none;
+
+  &:hover {
+    background: lightblue;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.active {
+  background: lightblue;
+}
